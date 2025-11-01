@@ -1,0 +1,82 @@
+---
+const buttonLabel = 'Toggle dark mode';
+---
+<button
+  type="button"
+  data-theme-toggle
+  class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-sm transition hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:border-primary dark:hover:text-primary"
+  aria-label={buttonLabel}
+>
+  <span aria-hidden="true" data-theme-icon class="text-lg">🌙</span>
+  <span class="sr-only">{buttonLabel}</span>
+</button>
+
+<script is:inline>
+  const STORAGE_KEY = 'chesslol-theme';
+  const root = document.documentElement;
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  const toggle = document.querySelector('[data-theme-toggle]');
+  const icon = toggle?.querySelector('[data-theme-icon]');
+
+  const getStoredTheme = () => {
+    try {
+      return localStorage.getItem(STORAGE_KEY);
+    } catch (error) {
+      console.warn('Unable to read stored theme', error);
+      return null;
+    }
+  };
+
+  const storeTheme = (theme) => {
+    try {
+      localStorage.setItem(STORAGE_KEY, theme);
+    } catch (error) {
+      console.warn('Unable to persist theme', error);
+    }
+  };
+
+  const applyTheme = (theme) => {
+    const isDark = theme === 'dark';
+    root.classList.toggle('dark', isDark);
+    root.dataset.theme = theme;
+    if (icon) {
+      icon.textContent = isDark ? '🌙' : '☀️';
+    }
+    if (toggle) {
+      toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+  };
+
+  const initializeTheme = () => {
+    const stored = getStoredTheme();
+    if (stored === 'dark' || stored === 'light') {
+      applyTheme(stored);
+      return;
+    }
+
+    applyTheme(prefersDark.matches ? 'dark' : 'light');
+  };
+
+  initializeTheme();
+
+  toggle?.addEventListener('click', () => {
+    const isCurrentlyDark = root.classList.contains('dark');
+    const nextTheme = isCurrentlyDark ? 'light' : 'dark';
+    applyTheme(nextTheme);
+    storeTheme(nextTheme);
+  });
+
+  const handlePreferenceChange = (event) => {
+    if (getStoredTheme()) {
+      return;
+    }
+
+    applyTheme(event.matches ? 'dark' : 'light');
+  };
+
+  if (typeof prefersDark.addEventListener === 'function') {
+    prefersDark.addEventListener('change', handlePreferenceChange);
+  } else if (typeof prefersDark.addListener === 'function') {
+    prefersDark.addListener(handlePreferenceChange);
+  }
+</script>
