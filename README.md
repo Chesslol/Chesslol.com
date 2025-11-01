@@ -43,4 +43,28 @@ Light/dark mode is controlled via a theme toggle in the header. The selection is
 
 ## Deployment
 
-The project is ready for any static hosting provider that supports Astro output (e.g. Cloudflare Pages, Netlify, Vercel). A sitemap and robots.txt are generated automatically using the placeholder site URL; update `siteUrl` in `src/config/site.ts` before launch.
+### GitHub Pages
+
+This project is configured for automatic deployment to GitHub Pages via GitHub Actions.
+
+#### Setup Instructions
+
+1. **Enable GitHub Pages**: Go to Settings → Pages → Source: GitHub Actions
+2. **Push changes**: The workflow will automatically trigger on push to `main`
+3. **Access your site**: After the first successful run, your site will be available at:
+   - User/organization Pages: `https://<username>.github.io`
+   - Project Pages: `https://<username>.github.io/<repository-name>`
+
+#### Local Preview
+
+```bash
+npm install
+npm run build
+npm run preview
+```
+
+The workflow automatically detects whether you're using user/organization Pages or project Pages and configures the base path accordingly.
+
+### Other Hosting
+
+The project is also ready for any static hosting provider that supports Astro output (e.g. Cloudflare Pages, Netlify, Vercel). A sitemap and robots.txt are generated automatically; the site URL is configured via environment variables in the GitHub Actions workflow.

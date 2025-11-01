@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { title = siteConfig.name, description = siteConfig.description } = Astro.props as Props;
-const currentUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
+const currentUrl = new URL(Astro.url.pathname + Astro.url.search, siteConfig.siteUrl).toString();
 const ogImage = new URL('/og.jpg', siteConfig.siteUrl).toString();
 ---
 <html lang="en" class="scroll-smooth">
