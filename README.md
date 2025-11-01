@@ -27,8 +27,14 @@ npm run dev
 
 Most of the site content lives in two TypeScript files:
 
-- [`src/config/site.ts`](src/config/site.ts) – update the site name, tagline, description, canonical URL, and social links (TikTok + YouTube placeholders are marked `TODO`).
-- [`src/data/links.ts`](src/data/links.ts) – maintain the list of outbound link cards. Each item supports `title`, `url`, optional `description`, and optional `icon` (emoji or character).
+- **[`src/config/site.ts`](src/config/site.ts)** – Update the site name, tagline, description, canonical URL, and **social links** (TikTok + YouTube). Update the placeholder URLs (`@TODO`) with your actual social media handles.
+- **[`src/data/links.ts`](src/data/links.ts)** – Maintain the list of outbound link cards. Each item supports:
+  - `title`: Display name for the link
+  - `url`: Destination URL
+  - `description`: Optional description text
+  - `icon`: Optional emoji or character icon
+  - `featured`: Optional boolean to display as a larger featured card (spans full grid width)
+  - `thumbnail`: Optional image URL for featured cards
 
 Changes are automatically reflected on both the homepage grid and the dedicated `/links` page.
 

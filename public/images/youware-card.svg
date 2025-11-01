@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="YouWare featured card">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#A855F7" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" rx="32" fill="url(#bg)" />
+  <rect x="24" y="24" width="592" height="312" rx="28" fill="none" stroke="url(#accent)" stroke-width="4" opacity="0.6" />
+  <text x="64" y="150" font-family="'Plus Jakarta Sans', 'Segoe UI', sans-serif" font-size="72" font-weight="700" fill="#E2E8F0">YouWare</text>
+  <text x="64" y="220" font-family="'Plus Jakarta Sans', 'Segoe UI', sans-serif" font-size="32" fill="#94A3B8">Feature Drop</text>
+  <circle cx="540" cy="110" r="46" fill="url(#accent)" opacity="0.25" />
+  <circle cx="520" cy="250" r="28" fill="url(#accent)" opacity="0.15" />
+</svg>
