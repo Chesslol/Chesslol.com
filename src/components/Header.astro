@@ -18,7 +18,7 @@ const socials = [
     href: siteConfig.socials.youtube,
     icon: 'youtube'
   }
-];
+].filter((social) => Boolean(social.href));
 
 const currentPath = Astro.url.pathname;
 ---
@@ -46,28 +46,30 @@ const currentPath = Astro.url.pathname;
       })}
     </nav>
     <div class="order-2 ml-auto flex items-center gap-2 sm:order-none sm:ml-0">
-      <div class="flex items-center gap-2 sm:gap-3">
-        {socials.map((social) => (
-          <a
-            href={social.href}
-            target="_blank"
-            rel="noreferrer noopener"
-            class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:border-slate-800 dark:text-slate-200"
-            aria-label={social.name}
-          >
-            {social.icon === 'tiktok' ? (
-              <svg viewBox="0 0 256 286" fill="currentColor" class="h-[18px] w-[18px]" aria-hidden="true">
-                <path d="M155.46 0h48.77c2.7 38.09 25.28 61.78 51.77 63.4v51.8c-18.1 1.75-34.81-4.9-50.5-16.14l-.25 108.44c0 87.13-95.1 113.18-139.98 56.13-38.1-48.67-15.77-139.43 61.15-143.44v54.17c-7.12 1.5-15 5.13-20.26 11.25-12.61 14.34-9.94 37.59 8.5 46.95 18.07 9.43 42.53-1.41 42.53-28.99z" />
-              </svg>
-            ) : (
-              <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-                <path d="M21.8 8.001a2.5 2.5 0 0 0-1.76-1.772C18.03 5.75 12 5.75 12 5.75s-6.03 0-8.04.479A2.5 2.5 0 0 0 2.2 8.001C1.75 10.017 1.75 12 1.75 12s0 1.983.45 3.999a2.5 2.5 0 0 0 1.76 1.772C5.97 18.25 12 18.25 12 18.25s6.03 0 8.04-.479a2.5 2.5 0 0 0 1.76-1.772C22.25 13.983 22.25 12 22.25 12s0-1.983-.45-3.999Z" />
-                <path d="M10.5 9.75v4.5l3.75-2.25-3.75-2.25Z" class="fill-slate-100 dark:fill-slate-950" />
-              </svg>
-            )}
-          </a>
-        ))}
-      </div>
+      {socials.length > 0 ? (
+        <div class="flex items-center gap-2 sm:gap-3">
+          {socials.map((social) => (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noreferrer noopener"
+              class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:border-slate-800 dark:text-slate-200"
+              aria-label={social.name}
+            >
+              {social.icon === 'tiktok' ? (
+                <svg viewBox="0 0 256 286" fill="currentColor" class="h-[18px] w-[18px]" aria-hidden="true">
+                  <path d="M155.46 0h48.77c2.7 38.09 25.28 61.78 51.77 63.4v51.8c-18.1 1.75-34.81-4.9-50.5-16.14l-.25 108.44c0 87.13-95.1 113.18-139.98 56.13-38.1-48.67-15.77-139.43 61.15-143.44v54.17c-7.12 1.5-15 5.13-20.26 11.25-12.61 14.34-9.94 37.59 8.5 46.95 18.07 9.43 42.53-1.41 42.53-28.99z" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+                  <path d="M21.8 8.001a2.5 2.5 0 0 0-1.76-1.772C18.03 5.75 12 5.75 12 5.75s-6.03 0-8.04.479A2.5 2.5 0 0 0 2.2 8.001C1.75 10.017 1.75 12 1.75 12s0 1.983.45 3.999a2.5 2.5 0 0 0 1.76 1.772C5.97 18.25 12 18.25 12 18.25s6.03 0 8.04-.479a2.5 2.5 0 0 0 1.76-1.772C22.25 13.983 22.25 12 22.25 12s0-1.983-.45-3.999Z" />
+                  <path d="M10.5 9.75v4.5l3.75-2.25-3.75-2.25Z" class="fill-slate-100 dark:fill-slate-950" />
+                </svg>
+              )}
+            </a>
+          ))}
+        </div>
+      ) : null}
       <ThemeToggle />
     </div>
   </div>
