@@ -1,0 +1,13 @@
+---
+import HomeFrame from '../components/home/HomeFrame.astro';
+import HeroBoldMinimal from '../components/home/HeroBoldMinimal.astro';
+import BackgroundBoldMinimal from '../components/home/BackgroundBoldMinimal.astro';
+import { siteConfig } from '../config/site';
+
+const title = `${siteConfig.name} · Variant A`;
+const description = `${siteConfig.tagline} — bold minimal home concept.`;
+---
+<HomeFrame variant="a" title={title} description={description}>
+  <BackgroundBoldMinimal slot="background" />
+  <HeroBoldMinimal slot="hero" />
+</HomeFrame>

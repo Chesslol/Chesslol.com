@@ -1,0 +1,33 @@
+---
+import { siteConfig } from '../../config/site';
+---
+<div class="relative mx-auto flex max-w-4xl flex-col items-center gap-10 text-center">
+  <span class="inline-flex items-center gap-2 rounded-full border border-slate-200/70 px-6 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-slate-500 shadow-sm backdrop-blur-sm dark:border-slate-800/60 dark:text-slate-400">
+    Variant A
+    <span aria-hidden="true" class="h-2 w-2 rounded-full bg-primary"></span>
+  </span>
+  <h1 class="text-balance text-5xl font-black tracking-[-0.045em] text-slate-900 sm:text-6xl lg:text-7xl dark:text-white">
+    Chesslol reimagines the board with fearless minimalism.
+  </h1>
+  <p class="max-w-3xl text-lg leading-relaxed text-slate-600 sm:text-xl dark:text-slate-300">
+    {siteConfig.tagline} Bring dramatic focus to every experiment with a single, confident accent that cuts through the monochrome.
+  </p>
+  <div class="grid w-full gap-4 text-left sm:grid-cols-3">
+    <article class="rounded-2xl border border-slate-200/70 bg-white/70 p-6 shadow-[0_35px_60px_-30px_rgba(15,23,42,0.35)] backdrop-blur dark:border-slate-800/60 dark:bg-slate-900/70">
+      <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">Daily tactics</p>
+      <p class="mt-4 flex items-baseline gap-2 text-3xl font-semibold text-slate-900 dark:text-white">45k
+        <span class="text-sm font-medium text-slate-500 dark:text-slate-400">views</span>
+      </p>
+    </article>
+    <article class="rounded-2xl border border-slate-200/70 bg-white/70 p-6 shadow-[0_35px_60px_-30px_rgba(15,23,42,0.35)] backdrop-blur dark:border-slate-800/60 dark:bg-slate-900/70">
+      <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">Live audience</p>
+      <p class="mt-4 flex items-baseline gap-2 text-3xl font-semibold text-slate-900 dark:text-white">12k+
+        <span class="text-sm font-medium text-slate-500 dark:text-slate-400">watching</span>
+      </p>
+    </article>
+    <article class="rounded-2xl border border-primary/30 bg-gradient-to-br from-white via-white to-primary/10 p-6 shadow-[0_35px_60px_-30px_rgb(var(--color-primary)_/_0.6)] backdrop-blur dark:border-primary/40 dark:from-slate-950 dark:via-slate-950 dark:to-primary/15">
+      <p class="text-xs font-semibold uppercase tracking-[0.3em] text-primary/80">Palette shift ready</p>
+      <p class="mt-4 text-2xl font-semibold text-slate-900 dark:text-white">Swap accents instantly from config.</p>
+    </article>
+  </div>
+</div>

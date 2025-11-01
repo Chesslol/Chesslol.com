@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HomeLinkGrid from './HomeLinkGrid.astro';
+import { siteConfig } from '../../config/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  variant?: 'default' | 'a' | 'b';
+}
+
+const { title = siteConfig.name, description = siteConfig.description, variant = 'default' } = Astro.props as Props;
+---
+<BaseLayout {title} {description}>
+  <slot name="background" />
+  <section class="relative py-24 sm:py-28">
+    <div class="mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 sm:px-6 lg:gap-20">
+      <slot name="hero" />
+      <HomeLinkGrid variant={variant} />
+    </div>
+  </section>
+</BaseLayout>

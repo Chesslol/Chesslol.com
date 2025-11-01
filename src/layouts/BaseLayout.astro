@@ -1,7 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { siteConfig } from '../config/site';
+import { siteConfig, accentPalettes } from '../config/site';
 import '../styles/global.css';
 
 interface Props {
@@ -12,8 +12,15 @@ interface Props {
 const { title = siteConfig.name, description = siteConfig.description } = Astro.props as Props;
 const currentUrl = new URL(Astro.url.pathname + Astro.url.search, siteConfig.siteUrl).toString();
 const ogImage = new URL('/og.jpg', siteConfig.siteUrl).toString();
+const accentPalette = accentPalettes[siteConfig.theme.accentPalette] ?? accentPalettes.indigo;
+const accentStyle = `
+  --color-primary: ${accentPalette.primary};
+  --color-primary-foreground: ${accentPalette.primaryForeground};
+  --color-accent-soft: ${accentPalette.accentSoft};
+  --color-accent-contrast: ${accentPalette.accentContrast};
+`.trim();
 ---
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" data-accent={siteConfig.theme.accentPalette} style={accentStyle}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

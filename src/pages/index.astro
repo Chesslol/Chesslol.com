@@ -1,27 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import LinkCard from '../components/LinkCard.astro';
+import HomeFrame from '../components/home/HomeFrame.astro';
+import HeroClassic from '../components/home/HeroClassic.astro';
 import ChessBackground from '../components/ChessBackground.astro';
-import { siteConfig } from '../config/site';
-import { links } from '../data/links';
 ---
-<BaseLayout title={siteConfig.name} description={siteConfig.description}>
-  <ChessBackground />
-  <section class="relative flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center py-20">
-    <div class="mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 sm:px-6">
-      <div class="flex flex-col items-center text-center">
-        <h1 class="text-balance text-6xl font-bold tracking-tighter text-slate-900 sm:text-7xl lg:text-8xl dark:text-white">
-          {siteConfig.name}
-        </h1>
-        <p class="mt-6 max-w-xl text-xl text-slate-600 dark:text-slate-300">
-          {siteConfig.tagline}
-        </p>
-      </div>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {links.map((link) => (
-          <LinkCard {...link} />
-        ))}
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+<HomeFrame variant="default">
+  <ChessBackground slot="background" />
+  <HeroClassic slot="hero" />
+</HomeFrame>
