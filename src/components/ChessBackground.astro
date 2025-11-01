@@ -1,0 +1,29 @@
+---
+---
+<div class="chess-bg pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-white via-surface-light to-slate-100 dark:from-slate-950 dark:via-surface-dark dark:to-slate-900"></div>
+  <div class="checkerboard absolute inset-0 text-slate-900/60 opacity-[0.02] dark:text-white/80 dark:opacity-[0.03]"></div>
+  <div class="absolute left-1/2 top-0 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-primary/20 blur-3xl dark:bg-primary/30"></div>
+  <div class="absolute bottom-0 right-0 h-[400px] w-[600px] translate-x-1/4 translate-y-1/4 rounded-full bg-purple-500/10 blur-3xl dark:bg-purple-500/20"></div>
+</div>
+
+<style>
+  .checkerboard {
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 40px,
+        currentColor 40px,
+        currentColor 41px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 40px,
+        currentColor 40px,
+        currentColor 41px
+      );
+    background-size: 40px 40px;
+  }
+</style>

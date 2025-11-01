@@ -3,6 +3,8 @@ export type LinkItem = {
   url: string;
   description?: string;
   icon?: string;
+  featured?: boolean;
+  thumbnail?: string;
 };
 
 export const links: LinkItem[] = [
@@ -10,7 +12,9 @@ export const links: LinkItem[] = [
     title: 'Costume Game',
     url: 'https://youware.app/project/costume-pw0bpp6zpo?enter_from=share&invite_code=4NDCU7RVOK',
     description: 'Suit up for the latest Chesslol challenge on YouWare.',
-    icon: '🕹️'
+    icon: '🕹️',
+    featured: true,
+    thumbnail: '/images/youware-card.svg'
   },
   {
     title: 'TikTok',
