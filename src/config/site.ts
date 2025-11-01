@@ -36,6 +36,8 @@ export type ThemeConfig = {
 
 export type SiteConfig = {
   name: string;
+  username: string;
+  bio: string;
   tagline: string;
   description: string;
   siteUrl: string;
@@ -45,12 +47,14 @@ export type SiteConfig = {
 
 export const siteConfig: SiteConfig = {
   name: 'Chesslol',
+  username: '@chesslol',
+  bio: 'Short bio placeholder',
   tagline: 'Where chess collides with creativity.',
-  description: 'Discover games, challenges, and playful chess experiments from the Chesslol collective.',
+  description: 'Visual link hub highlighting Chesslol posts and socials.',
   siteUrl: 'https://chesslol.com',
   socials: {
-    tiktok: 'https://www.tiktok.com/@TODO',
-    youtube: 'https://www.youtube.com/@TODO'
+    tiktok: '',
+    youtube: ''
   },
   theme: {
     accentPalette: 'indigo'

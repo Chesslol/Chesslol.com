@@ -1,9 +1,39 @@
 ---
-import HomeFrame from '../components/home/HomeFrame.astro';
-import HeroClassic from '../components/home/HeroClassic.astro';
-import ChessBackground from '../components/ChessBackground.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Avatar from '../components/Avatar.astro';
+import SocialIcons from '../components/SocialIcons.astro';
+import PostCard from '../components/PostCard.astro';
+import { siteConfig } from '../config/site';
+import { posts } from '../data/posts';
+
+const pageTitle = `${siteConfig.name} · Profile`;
+const pageDescription = siteConfig.bio;
 ---
-<HomeFrame variant="default">
-  <ChessBackground slot="background" />
-  <HeroClassic slot="hero" />
-</HomeFrame>
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <section class="relative bg-surface-light py-16 dark:bg-slate-950 sm:py-20">
+    <div class="mx-auto flex w-full max-w-5xl flex-col items-center gap-12 px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-center gap-6 text-center">
+        <Avatar name={siteConfig.name} src="avatar.jpg" alt={`${siteConfig.name} profile photo`} />
+        <div class="space-y-2">
+          <p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500 dark:text-slate-400">
+            {siteConfig.username}
+          </p>
+          <h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl dark:text-white">
+            {siteConfig.name}
+          </h1>
+          <p class="max-w-xl text-base text-slate-600 sm:text-lg dark:text-slate-300">
+            {siteConfig.bio}
+          </p>
+        </div>
+        <SocialIcons socials={siteConfig.socials} class="mt-2" />
+      </div>
+      <section aria-label="Featured posts" class="w-full">
+        <ul class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {posts.map((post) => (
+            <PostCard post={post} />
+          ))}
+        </ul>
+      </section>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,72 @@
+---
+import type { SocialLinks } from '../config/site';
+
+interface Props {
+  socials: SocialLinks;
+  class?: string;
+}
+
+const { socials, class: className = '' } = Astro.props as Props;
+const items = [
+  {
+    label: 'TikTok',
+    href: socials.tiktok,
+    icon: 'tiktok'
+  },
+  {
+    label: 'YouTube',
+    href: socials.youtube,
+    icon: 'youtube'
+  }
+];
+
+const containerClass = ['flex items-center gap-3', className].filter(Boolean).join(' ');
+---
+<ul class={containerClass} aria-label="Social profiles">
+  {items.map((item) => (
+    <li>
+      {item.href ? (
+        <a
+          href={item.href}
+          target="_blank"
+          rel="noreferrer noopener"
+          class="group relative flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white/80 text-slate-600 transition-transform duration-200 hover:-translate-y-1 hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200 dark:focus-visible:ring-offset-slate-950"
+          aria-label={item.label}
+        >
+          <span class="sr-only">{item.label}</span>
+          {item.icon === 'tiktok' ? (
+            <svg viewBox="0 0 256 286" fill="currentColor" class="h-[22px] w-[22px]" aria-hidden="true">
+              <path d="M155.46 0h48.77c2.7 38.09 25.28 61.78 51.77 63.4v51.8c-18.1 1.75-34.81-4.9-50.5-16.14l-.25 108.44c0 87.13-95.1 113.18-139.98 56.13-38.1-48.67-15.77-139.43 61.15-143.44v54.17c-7.12 1.5-15 5.13-20.26 11.25-12.61 14.34-9.94 37.59 8.5 46.95 18.07 9.43 42.53-1.41 42.53-28.99z" />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true">
+              <path d="M21.8 8.001a2.5 2.5 0 0 0-1.76-1.772C18.03 5.75 12 5.75 12 5.75s-6.03 0-8.04.479A2.5 2.5 0 0 0 2.2 8.001C1.75 10.017 1.75 12 1.75 12s0 1.983.45 3.999a2.5 2.5 0 0 0 1.76 1.772C5.97 18.25 12 18.25 12 18.25s6.03 0 8.04-.479a2.5 2.5 0 0 0 1.76-1.772C22.25 13.983 22.25 12 22.25 12s0-1.983-.45-3.999Z" />
+              <path d="M10.5 9.75v4.5l3.75-2.25-3.75-2.25Z" class="fill-slate-100 dark:fill-slate-950" />
+            </svg>
+          )}
+          <span class="pointer-events-none absolute -bottom-10 rounded-full bg-slate-900 px-3 py-1 text-xs font-medium text-white opacity-0 shadow-lg transition duration-150 group-hover:-translate-y-1 group-hover:opacity-100 group-focus-visible:-translate-y-1 group-focus-visible:opacity-100 dark:bg-white dark:text-slate-900">
+            {item.label}
+          </span>
+        </a>
+      ) : (
+        <span
+          class="flex h-12 w-12 items-center justify-center rounded-full border border-dashed border-slate-300 bg-white/40 text-slate-400 shadow-inner dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-500"
+          role="img"
+          aria-label={`${item.label} link placeholder`}
+          title={`Add your ${item.label} link in src/config/site.ts`}
+        >
+          {item.icon === 'tiktok' ? (
+            <svg viewBox="0 0 256 286" fill="currentColor" class="h-[22px] w-[22px]" aria-hidden="true">
+              <path d="M155.46 0h48.77c2.7 38.09 25.28 61.78 51.77 63.4v51.8c-18.1 1.75-34.81-4.9-50.5-16.14l-.25 108.44c0 87.13-95.1 113.18-139.98 56.13-38.1-48.67-15.77-139.43 61.15-143.44v54.17c-7.12 1.5-15 5.13-20.26 11.25-12.61 14.34-9.94 37.59 8.5 46.95 18.07 9.43 42.53-1.41 42.53-28.99z" />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true">
+              <path d="M21.8 8.001a2.5 2.5 0 0 0-1.76-1.772C18.03 5.75 12 5.75 12 5.75s-6.03 0-8.04.479A2.5 2.5 0 0 0 2.2 8.001C1.75 10.017 1.75 12 1.75 12s0 1.983.45 3.999a2.5 2.5 0 0 0 1.76 1.772C5.97 18.25 12 18.25 12 18.25s6.03 0 8.04-.479a2.5 2.5 0 0 0 1.76-1.772C22.25 13.983 22.25 12 22.25 12s0-1.983-.45-3.999Z" />
+              <path d="M10.5 9.75v4.5l3.75-2.25-3.75-2.25Z" class="fill-slate-200 dark:fill-slate-800" />
+            </svg>
+          )}
+        </span>
+      )}
+    </li>
+  ))}
+</ul>

@@ -1,0 +1,56 @@
+---
+import type { Post } from '../data/posts';
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props as Props;
+
+const resolveAssetPath = (path: string) => {
+  if (/^https?:\/\//i.test(path)) {
+    return path;
+  }
+  const trimmed = path.replace(/^\/+/, '');
+  return `${import.meta.env.BASE_URL}${trimmed}`;
+};
+
+const aspectClass =
+  post.aspect === 'portrait'
+    ? 'aspect-[3/4]'
+    : post.aspect === 'landscape'
+      ? 'aspect-[4/3]'
+      : 'aspect-square';
+
+const cardSpanClass = post.featured ? 'md:col-span-2' : '';
+const imageSrc = resolveAssetPath(post.image);
+const altText = post.title ?? `${post.id.replace(/-/g, ' ')} preview`;
+const ariaLabel = post.title ?? 'Open post';
+---
+<li class={`relative ${cardSpanClass}`}>
+  <a
+    href={post.href}
+    target="_blank"
+    rel="noreferrer noopener"
+    class="group block rounded-3xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950"
+    aria-label={ariaLabel}
+  >
+    <figure
+      class={`relative ${aspectClass} overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm transition duration-200 group-hover:-translate-y-1 group-hover:shadow-lg dark:border-slate-800 dark:bg-slate-900/70 dark:group-hover:shadow-none`}
+    >
+      <img
+        src={imageSrc}
+        alt={altText}
+        loading="lazy"
+        decoding="async"
+        class="h-full w-full object-cover transition duration-200 ease-out group-hover:scale-[1.03]"
+      />
+      <span class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/40 via-slate-900/0 opacity-0 transition-opacity duration-200 group-hover:opacity-100"></span>
+      {post.title ? (
+        <figcaption class="pointer-events-none absolute inset-x-4 bottom-4 rounded-lg bg-black/60 px-3 py-1.5 text-sm font-medium text-white opacity-0 backdrop-blur transition duration-200 group-hover:opacity-100">
+          {post.title}
+        </figcaption>
+      ) : null}
+    </figure>
+  </a>
+</li>
