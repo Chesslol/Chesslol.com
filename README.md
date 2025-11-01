@@ -42,6 +42,17 @@ Changes are automatically reflected on both the homepage grid and the dedicated 
 
 Light/dark mode is controlled via a theme toggle in the header. The selection is persisted in `localStorage` and respects the user’s OS preference by default. Tailwind’s dark mode is configured to use the `class` strategy.
 
+**Accent palettes:** Select between the included `indigo` and `lime` palettes by updating `siteConfig.theme.accentPalette` in [`src/config/site.ts`](src/config/site.ts). Values are injected as CSS variables so the accent color instantly cascades across backgrounds, buttons, and shadows. To add a new palette, append an entry to the exported `accentPalettes` map.
+
+### Home variants
+
+Two alternate home treatments are available for visual review:
+
+- `/alt-a` — Bold minimalism with a monochrome hero and animated gradient chessboard.
+- `/alt-b` — Playful cards with soft shadows and lightweight parallax chess pieces (respects reduced motion).
+
+Both variants share the header, footer, and links grid so you can compare hero and background approaches in isolation.
+
 ### Assets
 
 - `public/favicon.svg` – update with the Chesslol brand mark if you have a production asset.

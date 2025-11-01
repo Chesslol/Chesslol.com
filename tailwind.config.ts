@@ -7,8 +7,12 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#6366F1',
-          foreground: '#EEF2FF'
+          DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)',
+          foreground: 'rgb(var(--color-primary-foreground) / <alpha-value>)'
+        },
+        accent: {
+          soft: 'rgb(var(--color-accent-soft) / <alpha-value>)',
+          contrast: 'rgb(var(--color-accent-contrast) / <alpha-value>)'
         },
         surface: {
           light: '#F8FAFC',
@@ -19,7 +23,7 @@ const config: Config = {
         sans: ['Plus Jakarta Sans', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
       },
       boxShadow: {
-        glow: '0 25px 50px -12px rgb(99 102 241 / 0.45)'
+        glow: '0 25px 50px -12px rgb(var(--color-primary) / 0.45)'
       },
       maxWidth: {
         content: '72rem'

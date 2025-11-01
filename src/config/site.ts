@@ -3,12 +3,44 @@ export type SocialLinks = {
   youtube: string;
 };
 
+export type AccentPaletteName = 'indigo' | 'lime';
+
+export type AccentPalette = {
+  label: string;
+  primary: string;
+  primaryForeground: string;
+  accentSoft: string;
+  accentContrast: string;
+};
+
+export const accentPalettes: Record<AccentPaletteName, AccentPalette> = {
+  indigo: {
+    label: 'Indigo Pulse',
+    primary: '99 102 241',
+    primaryForeground: '238 242 255',
+    accentSoft: '129 140 248',
+    accentContrast: '49 46 129'
+  },
+  lime: {
+    label: 'Lime Burst',
+    primary: '101 163 13',
+    primaryForeground: '247 254 231',
+    accentSoft: '163 230 53',
+    accentContrast: '54 83 20'
+  }
+};
+
+export type ThemeConfig = {
+  accentPalette: AccentPaletteName;
+};
+
 export type SiteConfig = {
   name: string;
   tagline: string;
   description: string;
   siteUrl: string;
   socials: SocialLinks;
+  theme: ThemeConfig;
 };
 
 export const siteConfig: SiteConfig = {
@@ -19,5 +51,8 @@ export const siteConfig: SiteConfig = {
   socials: {
     tiktok: 'https://www.tiktok.com/@TODO',
     youtube: 'https://www.youtube.com/@TODO'
+  },
+  theme: {
+    accentPalette: 'indigo'
   }
 };

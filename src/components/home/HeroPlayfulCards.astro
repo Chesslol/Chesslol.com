@@ -1,0 +1,55 @@
+---
+import { siteConfig } from '../../config/site';
+---
+<div class="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
+  <div class="flex flex-col gap-6 text-left">
+    <span class="inline-flex items-center gap-2 self-start rounded-full bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+      Variant B
+      <span aria-hidden="true" class="h-2 w-2 rounded-full bg-primary"></span>
+    </span>
+    <h1 class="text-balance text-5xl font-semibold tracking-[-0.03em] text-slate-900 sm:text-6xl lg:text-7xl dark:text-white">
+      Cards, color, and movement bring the Chesslol universe to life.
+    </h1>
+    <p class="max-w-2xl text-lg leading-relaxed text-slate-600 sm:text-xl dark:text-slate-300">
+      {siteConfig.tagline} Build a playful grid of moments, feature drops, and quick links that feel ready to tap.
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <a
+        class="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        href={siteConfig.socials.tiktok}
+        rel="noreferrer noopener"
+        target="_blank"
+      >
+        Watch on TikTok
+        <span aria-hidden="true">↗</span>
+      </a>
+      <a
+        class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-white/80 px-5 py-3 text-sm font-semibold text-primary transition hover:-translate-y-0.5 hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:border-primary/50 dark:bg-slate-950/60"
+        href={siteConfig.socials.youtube}
+        rel="noreferrer noopener"
+        target="_blank"
+      >
+        Deep dives on YouTube
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+  <div class="relative grid gap-4 text-left sm:grid-cols-2">
+    <article class="group relative overflow-hidden rounded-3xl border border-primary/20 bg-white/90 p-6 shadow-xl shadow-primary/10 transition-transform duration-300 ease-out sm:col-span-2 hover:-translate-y-1 dark:border-primary/30 dark:bg-slate-950/80">
+      <div class="absolute -top-10 right-8 h-24 w-24 rounded-full bg-primary/20 blur-3xl transition-opacity duration-300 group-hover:opacity-100 dark:bg-primary/30"></div>
+      <p class="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">Featured drop</p>
+      <h2 class="mt-4 text-2xl font-semibold text-slate-900 dark:text-white">Seasonal challenges arrive weekly.</h2>
+      <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Stack cards or archive them—either way every match gets a spotlight.</p>
+    </article>
+    <article class="relative flex flex-col gap-3 rounded-3xl border border-slate-200/60 bg-accent-soft/10 p-6 shadow-lg shadow-slate-200/30 transition-transform duration-300 ease-out hover:-translate-y-1 dark:border-slate-800/60 dark:bg-slate-900/70 dark:shadow-black/40">
+      <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/15 text-2xl">♞</span>
+      <h3 class="text-xl font-semibold text-slate-900 dark:text-white">Community spotlights</h3>
+      <p class="text-sm text-slate-500 dark:text-slate-400">Minimal effort, maximum delight—surface player-made brilliance.</p>
+    </article>
+    <article class="relative flex flex-col gap-3 rounded-3xl border border-slate-200/60 bg-white/90 p-6 shadow-lg shadow-primary/15 transition-transform duration-300 ease-out hover:-translate-y-1 dark:border-slate-800/60 dark:bg-slate-950/80 dark:shadow-black/40">
+      <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground text-xl">♛</span>
+      <h3 class="text-xl font-semibold text-slate-900 dark:text-white">Live coaching moments</h3>
+      <p class="text-sm text-slate-500 dark:text-slate-400">Switch palettes and keep the energy high for every event.</p>
+    </article>
+  </div>
+</div>

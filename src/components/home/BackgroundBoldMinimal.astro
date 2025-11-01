@@ -1,0 +1,69 @@
+---
+---
+<div class="minimal-bg pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-white via-slate-50 to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"></div>
+  <div class="minimal-bg__gradient"></div>
+  <div class="minimal-bg__board"></div>
+  <div class="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-primary/25 blur-[160px] dark:bg-primary/35"></div>
+</div>
+
+<style>
+  .minimal-bg__gradient {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgb(var(--color-primary) / 0.18), transparent 55%),
+      radial-gradient(circle at 75% 10%, rgb(var(--color-primary) / 0.12), transparent 60%),
+      radial-gradient(circle at 50% 85%, rgb(var(--color-primary) / 0.14), transparent 62%);
+    filter: saturate(120%);
+    animation: minimal-gradient-pan 26s ease-in-out infinite alternate;
+    mix-blend-mode: screen;
+  }
+
+  .minimal-bg__board {
+    position: absolute;
+    inset: -200px;
+    background-image:
+      linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+    background-size: 140px 140px;
+    opacity: 0.8;
+    mask-image: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.15) 70%, transparent 100%);
+    animation: minimal-board-shift 22s linear infinite;
+  }
+
+  @keyframes minimal-gradient-pan {
+    0% {
+      transform: translate3d(-30px, -20px, 0) scale(1.05);
+    }
+
+    50% {
+      transform: translate3d(20px, 10px, 0) scale(1.08);
+    }
+
+    100% {
+      transform: translate3d(-10px, 20px, 0) scale(1.04);
+    }
+  }
+
+  @keyframes minimal-board-shift {
+    0% {
+      background-position: 0 0, 0 0;
+    }
+
+    50% {
+      background-position: 40px 20px, 20px 40px;
+    }
+
+    100% {
+      background-position: 80px 60px, 60px 80px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .minimal-bg__gradient,
+    .minimal-bg__board {
+      animation: none;
+    }
+  }
+</style>

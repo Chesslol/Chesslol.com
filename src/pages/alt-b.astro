@@ -1,0 +1,13 @@
+---
+import HomeFrame from '../components/home/HomeFrame.astro';
+import HeroPlayfulCards from '../components/home/HeroPlayfulCards.astro';
+import BackgroundPlayfulParallax from '../components/home/BackgroundPlayfulParallax.astro';
+import { siteConfig } from '../config/site';
+
+const title = `${siteConfig.name} · Variant B`;
+const description = `${siteConfig.tagline} — playful cards home concept.`;
+---
+<HomeFrame variant="b" title={title} description={description}>
+  <BackgroundPlayfulParallax slot="background" />
+  <HeroPlayfulCards slot="hero" />
+</HomeFrame>
